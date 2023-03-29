@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--main-bg: #fefefe;
+	--secondary-bg: #ffffff;
+	--text-main: hsl(200, 15%, 8%);
+}
+
+[data-dark='true'] {
+	--main-bg: #202d36;
+	--secondary-bg: #2b3743;
+	--text-main: hsl(0, 0%, 100%);
+}
+
+body {
+	background-color: var(--main-bg);
+  color: var(--text-main);
+  font-family: 'Nunito Sans', sans-serif;
+	transition: color 300ms background-color 300ms;
+}
