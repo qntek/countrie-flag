@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import ContextHook from './hooks/ContextHook';
+import Header from './components/Header';
 import './style/index.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 	
 	return (
 		<div>
-			
+			<Header />
 		</div>
 	);
 }
