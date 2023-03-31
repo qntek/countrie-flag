@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--main-bg: #fefefe;
+	--main-bg: #fafafa;
 	--secondary-bg: #ffffff;
 	--text-main: hsl(200, 15%, 8%);
 }
@@ -18,9 +18,16 @@ body {
 	background-color: var(--main-bg);
   color: var(--text-main);
   font-family: 'Nunito Sans', sans-serif;
-	transition: color 300ms background-color 300ms;
 }
 
 header {
 	background-color: var(--secondary-bg);
+}
+header img {
+	width: 20px;
+}
+
+.filter-options-input {
+	background-color: var(--secondary-bg);
+	color: var(--text-main);
 }

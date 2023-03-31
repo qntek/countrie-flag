@@ -4,15 +4,20 @@ import ContextHook from '../hooks/ContextHook';
 
 function Header() {
 	const { isDarkMode, setDarkMode } = ContextHook();
+
+	const onThemeChange = () => {
+		localStorage.setItem('theme', !isDarkMode);
+		setDarkMode(!isDarkMode);
+	}
 	return (
-		<header className=' py-6'>
+		<header className='text-sm md:text-base lg:text-xl py-6'>
 			<div className='xl:container mx-5 xl:mx-auto flex flex-row justify-between'>
 				<div>
 					<h1 className='font-extrabold'>Where in the word?</h1>
 				</div>
 				<div
-					onClick={() => setDarkMode(!isDarkMode)}
-					className='flex flex-row cursor-pointer'>
+					onClick={onThemeChange}
+					className='flex flex-row align-middle cursor-pointer'>
 					<img src={isDarkMode ? moonIconLight : moonIcon} alt='' />
 					<p className='font-semibold pl-2'>Dark Mode</p>
 				</div>
