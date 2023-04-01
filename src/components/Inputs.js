@@ -18,13 +18,13 @@ function Inputs() {
 	isDarkMode ? (icon = searchIconLight) : (icon = searchIcon);
 	return (
 		<div className='xl:container xl:mx-auto mx-5 my-8 md:flex md:justify-between md:align-middle'>
-			<div className='block relative'>
+			<div className='block relative w-full md:w-1/2 xl:w-1/3'>
 				<input
 					value={countryName}
 					placeholder='Search for a country...'
 					onChange={onChange}
 					aria-label='Country name'
-					className='filter-options-input h-10 ps-10 py-3 w-full md:w-1/2 xl:w-1/3 rounded-md'
+					className='filter-options-input h-10 ps-10 py-3 w-full  rounded-md'
 				/>
 				<img src={icon} alt='' className='absolute top-1/2 -translate-y-1/2 left-2'/>
 			</div>
@@ -35,7 +35,7 @@ function Inputs() {
 					Filter by Region
 				</option>
 				<option value='africa'>Africa</option>
-				<option value='america'>America</option>
+				<option value='americas'>America</option>
 				<option value='asia'>Asia</option>
 				<option value='europe'>Europe</option>
 				<option value='oceania'>Oceania</option>

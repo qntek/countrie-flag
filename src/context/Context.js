@@ -10,7 +10,7 @@ function Context({ children }) {
 	const [isDarkMode, setDarkMode] = useState(currentTheme);
 	const [countryName, setCountryName] = useState('');
 	const [filterOption, setFilter] = useState('all');
-
+	
 	const toShare = {
 		isDarkMode,
 		setDarkMode,

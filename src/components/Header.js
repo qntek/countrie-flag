@@ -10,7 +10,7 @@ function Header() {
 		setDarkMode(!isDarkMode);
 	}
 	return (
-		<header className='text-sm md:text-base lg:text-xl py-6'>
+		<header className='text-base md:text-xl lg:text-2xl py-6'>
 			<div className='xl:container mx-5 xl:mx-auto flex flex-row justify-between'>
 				<div>
 					<h1 className='font-extrabold'>Where in the word?</h1>

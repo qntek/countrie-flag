@@ -31,3 +31,7 @@ header img {
 	background-color: var(--secondary-bg);
 	color: var(--text-main);
 }
+
+.card {
+	background-color: var(--secondary-bg);
+}
