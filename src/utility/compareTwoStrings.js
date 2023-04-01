@@ -1,11 +1,4 @@
-function compareTwoStrings(str1, str2) {
-	const searchTerm = str2.toLowerCase().replace(/[^\w\s]/gi, '');
-	const regex = new RegExp(
-		`\\b${searchTerm.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}\\b`,
-		'i'
-	);
-	return regex.test(str1.toLowerCase());
-}
+
 
 function levenshteinDistance(str1, str2) {
 	const len1 = str1.length;
@@ -50,4 +43,4 @@ function isSimilarString(str1, str2) {
 
 export { levenshteinDistance, isSimilarString };
 
-export default compareTwoStrings;
+// The levenshteinDistance function is the core of the algorithm. It calculates the distance between two strings. The distance is the number of operations needed to transform one string into the other. The operations are: insert, delete, and replace. The function returns the distance between the two strings.
