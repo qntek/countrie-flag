@@ -34,11 +34,15 @@ function levenshteinDistance(str1, str2) {
 	return diff[len1][len2];
 }
 
-function isSimilarString(str1, str2, threshold) {
-	const distance = levenshteinDistance(str1.toLowerCase(), str2.toLowerCase());
+function isSimilarString(str1, str2) {
+	let threshold = Math.floor(str1.common.length / 3);
+	const distance = levenshteinDistance(
+		str1.common.toLowerCase(),
+		str2.toLowerCase()
+	);
 	if (
 		distance <= threshold ||
-		str1.toLowerCase().includes(str2.toLowerCase())
+		str1.official.toLowerCase().includes(str2.toLowerCase())
 	) {
 		return true;
 	} else return false;

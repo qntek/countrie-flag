@@ -17,10 +17,11 @@ function App() {
 			: body.setAttribute('data-dark', 'false');
 	}, [isDarkMode]);
 
-	let response = data.flat();
+	let response = data;
+
 	const cards = response.map((country, index) => {
 		if (
-			isSimilarString(country.name.official, countryName, 2) || countryName.length === 0
+			isSimilarString(country.name, countryName) || countryName.length === 0
 		) {
 			return (
 				<Card
@@ -33,7 +34,7 @@ function App() {
 					capital={country.capital}
 				/>
 			);
-		}
+		} else return null;
 	});
 
 	return (

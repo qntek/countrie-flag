@@ -5,14 +5,14 @@ function Card({ flagUrl, flagAlt, countryName, population, region, capital }) {
 			<div className='w-full px-5 py-8 '>
 				<h2 className='text-2xl font-bold leading-loose'>{countryName}</h2>
 				<p>
-					<span className='font-bold leading-relaxed'>Population:</span>{' '}
+					<span className='font-bold leading-relaxed'>Population: </span>{' '}
 					{population}
 				</p>
 				<p>
-					<span className='font-bold leading-relaxed'>Region:</span> {region}
+					<span className='font-bold leading-relaxed'>Region: </span> {region}
 				</p>
 				<p>
-					<span className='font-bold leading-relaxed'>Capital:</span> {capital}
+					<span className='font-bold leading-relaxed'>Capital: </span> {capital}
 				</p>
 			</div>
 		</div>
