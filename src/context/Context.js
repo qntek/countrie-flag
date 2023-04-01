@@ -10,7 +10,8 @@ function Context({ children }) {
 	const [isDarkMode, setDarkMode] = useState(currentTheme);
 	const [countryName, setCountryName] = useState('');
 	const [filterOption, setFilter] = useState('all');
-	
+	const [isSingleView, setSingleView] = useState(false);
+
 	const toShare = {
 		isDarkMode,
 		setDarkMode,
@@ -18,6 +19,7 @@ function Context({ children }) {
 		setCountryName,
 		filterOption,
 		setFilter,
+		isSingleView, setSingleView
 	};
 	return <appContext.Provider value={toShare}>{children}</appContext.Provider>;
 }
