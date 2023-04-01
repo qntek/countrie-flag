@@ -11,7 +11,7 @@ function Header() {
 	}
 	return (
 		<header className='text-base md:text-xl lg:text-2xl py-6'>
-			<div className='xl:container mx-5 xl:mx-auto flex flex-row justify-between'>
+			<div className='xl:container mx-5 xl:mx-auto xl:px-12 flex flex-row justify-between'>
 				<div>
 					<h1 className='font-extrabold'>Where in the word?</h1>
 				</div>

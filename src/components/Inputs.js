@@ -1,8 +1,9 @@
 import ContextHook from '../hooks/ContextHook';
 import searchIcon from '../svg/search.svg';
 import searchIconLight from '../svg/searchWhite.svg';
+
 function Inputs() {
-	const { isDarkMode, countryName, setCountryName, filterOption, setFilter } =
+	const { isDarkMode, countryName, setCountryName, setFilter } =
 		ContextHook();
 
 	const onChange = (e) => {
@@ -16,8 +17,9 @@ function Inputs() {
 
 	let icon;
 	isDarkMode ? (icon = searchIconLight) : (icon = searchIcon);
+	
 	return (
-		<div className='xl:container xl:mx-auto mx-5 my-8 md:flex md:justify-between md:align-middle'>
+		<div className='xl:container xl:mx-auto mx-5 my-8 md:flex md:justify-between md:align-middle md:px-7 xl:px-12'>
 			<div className='block relative w-full md:w-1/2 xl:w-1/3'>
 				<input
 					value={countryName}
