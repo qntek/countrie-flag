@@ -35,3 +35,8 @@ header img {
 .card {
 	background-color: var(--secondary-bg);
 }
+
+.btn {
+	background-color: var(--secondary-bg);
+	color: var(--text-main);
+}

@@ -3,7 +3,7 @@ import ContextHook from '../hooks/ContextHook';
 function DetailedView() {
 	const { data, activeCard, setSingleView, countryName, filterOption } = ContextHook();
 	const country = data[activeCard];
-	console.log(data[activeCard]);
+	// console.log(data[activeCard]);
 
   const HandleBackClick = () => {
     setSingleView(false);
@@ -30,8 +30,8 @@ function DetailedView() {
     languages.push(country.languages[key]);
   }
 	return (
-		<div className='xl:container mx-5 xl:mx-auto xl:px-12'>
-			<button onClick={HandleBackClick}>Back</button>
+		<div className='xl:container mx-5 xl:mx-auto xl:px-12 mt-12'>
+			<button onClick={HandleBackClick} className='btn appearance-none drop-shadow-2xl px-8 py-1 rounded-sm'>Back</button>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
 				<div>
 					<img

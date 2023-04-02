@@ -14,8 +14,8 @@ function App() {
 		isDarkMode
 			? body.setAttribute('data-dark', 'true')
 			: body.setAttribute('data-dark', 'false');
-			document.getElementById('searchValue').focus()
-	}, [isDarkMode]);
+		if (!isSingleView) document.getElementById('searchValue').focus()
+	}, [isDarkMode, isSingleView]);
 
 	return (
 		<div>

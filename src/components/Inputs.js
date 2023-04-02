@@ -31,6 +31,7 @@ function Inputs() {
 					onChange={(e) => {
 						if (inputRef.current.value === '') setCountryName('');
 					}}
+					onSubmit={() => {setCountryName(inputRef.current.value)}}
 					aria-label='Country name'
 					className='filter-options-input h-10 ps-10 py-3 w-full  rounded-md'
 				/>
