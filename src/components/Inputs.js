@@ -4,10 +4,11 @@ import searchIcon from '../svg/search.svg';
 import searchIconLight from '../svg/searchWhite.svg';
 
 function Inputs() {
-	const { isDarkMode, setCountryName, setFilter } = ContextHook();
+	const { isDarkMode, setCountryName, setFilter, countryName } = ContextHook();
 
 	const onSubmit = (e) => {
-		if (e.key === 'Enter') setCountryName(e.target.value);
+		if (e.key === 'Enter') {setCountryName(e.target.value);
+		}
 	};
 
 	const onChangeOption = (e) => {
@@ -21,6 +22,7 @@ function Inputs() {
 		<div className='xl:container xl:mx-auto mx-5 my-8 md:flex md:justify-between md:align-middle md:px-7 xl:px-12'>
 			<div className='block relative w-full md:w-1/2 xl:w-1/3'>
 				<input
+					id = 'searchValue'
 					ref={inputRef}
 					placeholder='Search for a country...'
 					onKeyDown={(e) => {
@@ -40,6 +42,7 @@ function Inputs() {
 				/>
 			</div>
 			<select
+				id = 'filterValue'
 				className='filter-options-input h-10 mt-8 md:my-0 px-5 rounded-md'
 				onChange={onChangeOption}>
 				<option default value='all'>

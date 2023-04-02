@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import data from '../data.json';
 
 const appContext = createContext();
 
@@ -24,6 +25,7 @@ function Context({ children }) {
 		setSingleView,
 		activeCard,
 		setActiveCard,
+		data
 	};
 	return <appContext.Provider value={toShare}>{children}</appContext.Provider>;
 }

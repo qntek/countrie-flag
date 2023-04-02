@@ -1,10 +1,10 @@
 import ContextHook from '../hooks/ContextHook';
 import Card from './Card';
 import { isSimilarString } from '../utility/compareTwoStrings';
-import data from '../data.json';
+
 
 function AllCards() {
-	const { countryName, filterOption, setSingleView } = ContextHook();
+	const { countryName, filterOption, setSingleView, data } = ContextHook();
 
 	const singleCardClickHandler = () => {
 		setSingleView(true);
@@ -38,7 +38,7 @@ function AllCards() {
 	});
 
 	return (
-		<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12  px-5 md:px-12 xl:container xl:mx-auto'>
+		<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 px-5 md:px-12 xl:container xl:mx-auto'>
 			{cards}
 		</div>
 	);
