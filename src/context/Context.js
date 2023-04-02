@@ -8,9 +8,10 @@ function Context({ children }) {
 		? (currentTheme = true)
 		: (currentTheme = false);
 	const [isDarkMode, setDarkMode] = useState(currentTheme);
-	const [countryName, setCountryName] = useState('');
-	const [filterOption, setFilter] = useState('all');
-	const [isSingleView, setSingleView] = useState(false);
+	const [countryName, setCountryName] = useState(''); //value for search by name
+	const [filterOption, setFilter] = useState('all'); //value for filter by region
+	const [isSingleView, setSingleView] = useState(false); //true when single country card is clicked
+	const [activeCard, setActiveCard] = useState(null); //data index of the active card
 
 	const toShare = {
 		isDarkMode,
@@ -19,7 +20,10 @@ function Context({ children }) {
 		setCountryName,
 		filterOption,
 		setFilter,
-		isSingleView, setSingleView
+		isSingleView,
+		setSingleView,
+		activeCard,
+		setActiveCard,
 	};
 	return <appContext.Provider value={toShare}>{children}</appContext.Provider>;
 }

@@ -1,6 +1,14 @@
-function Card({ flagUrl, flagAlt, countryName, population, region, capital }) {
+import ContextHook from '../hooks/ContextHook';
+
+function Card({ flagUrl, id, flagAlt, countryName, population, region, capital, onClick }) {
+	const { setActiveCard } = ContextHook();
+	const clickHandler = (e) => {
+		onClick();
+		setActiveCard(e.target.closest('.card').id);
+	};
+
 	return (
-		<div className='card w-full rounded-lg overflow-hidden drop-shadow-xl cursor-pointer hover:scale-105 transition-transform'>
+		<div id={id} onClick={(e) => clickHandler(e)} className='card w-full rounded-lg overflow-hidden drop-shadow-xl cursor-pointer hover:scale-105 transition-transform'>
 			<img src={flagUrl} alt={flagAlt} className='w-full' />
 			<div className='w-full px-5 py-8 '>
 				<h2 className='text-2xl font-bold leading-loose'>{countryName}</h2>
