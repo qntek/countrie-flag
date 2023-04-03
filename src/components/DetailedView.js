@@ -1,19 +1,20 @@
 import ContextHook from '../hooks/ContextHook';
 
 function DetailedView() {
-	const { data, activeCard, setSingleView, countryName, filterOption } = ContextHook();
+	const { data, activeCard, setSingleView, countryName, filterOption } =
+		ContextHook();
 	const country = data[activeCard];
 	// console.log(data[activeCard]);
 
-  const HandleBackClick = () => {
-    setSingleView(false);
-    setTimeout(() => {
-      document.getElementById('searchValue').value = countryName;
-      document.getElementById('filterValue').value = filterOption;
-      document.getElementById('searchValue').focus();
-    }, 150);
-  };
-  
+	const HandleBackClick = () => {
+		setSingleView(false);
+		setTimeout(() => {
+			document.getElementById('searchValue').value = countryName;
+			document.getElementById('filterValue').value = filterOption;
+			document.getElementById('searchValue').focus();
+		}, 150);
+	};
+
 	let nativeName;
 	for (let value in Object.values(country.name.nativeName)) {
 		nativeName = Object.values(country.name.nativeName)[value].common;
@@ -25,42 +26,60 @@ function DetailedView() {
 			currencies = '';
 		}
 	}
-  const languages = [];
-  for (let key of Object.keys(country.languages)) {
-    languages.push(country.languages[key]);
-  }
+	const languages = [];
+	for (let key of Object.keys(country.languages)) {
+		languages.push(country.languages[key]);
+	}
 	return (
-		<div className='xl:container mx-5 xl:mx-auto xl:px-12 mt-12'>
-			<button onClick={HandleBackClick} className='btn appearance-none drop-shadow-2xl px-8 py-1 rounded-sm'>Back</button>
+		<div className='xl:container mx-5 xl:mx-auto xl:px-12'>
+			<button
+				onClick={HandleBackClick}
+				className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
+				Back
+			</button>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
-				<div>
+				<div className='border-solid border-1 border-slate-800'>
 					<img
 						src={country.flags.svg}
 						alt={country.flags.alt}
 						className='w-full'
 					/>
 				</div>
-				<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
-					<div>
-						<h1>{country.name.common}</h1>
-						<SingleLineText title={'Native name: '} text={nativeName} />
-						<Link url={country.coatOfArms.png} title={'Emblem'} />
-						<SingleLineText title={'Continent: '} text={country.continents} />
-						<SingleLineText title={'Population: '} text={country.population} />
-						<SingleLineText title={'Capital: '} text={country.capital} />
-						<SingleLineText
-							title={'UN Member: '}
-							text={country.unMember ? 'Yes' : 'No'}
-						/>
+				<div className='md:mx-5 lg:mx-12 tracking-wide
+'>
+					<h1 className='text-xl md:text-2xl lg:text-4xl font-extrabold mb-5'>{country.name.common}</h1>
+					<div className='w-full grid grid-cols-1 mb-2 pb-2 md:grid-cols-2 gap-4 leading-8 border-b border-slate-700'>
+						<div>
+							<SingleLineText title={'Native name: '} text={nativeName} />
+							<Link url={country.coatOfArms.png} title={'Emblem'} />
+							<SingleLineText title={'Continent: '} text={country.continents} />
+							<SingleLineText
+								title={'Population: '}
+								text={country.population}
+							/>
+							<SingleLineText title={'Capital: '} text={country.capital} />
+							<SingleLineText
+								title={'UN Member: '}
+								text={country.unMember ? 'Yes' : 'No'}
+							/>
+						</div>
+						<div>
+							<SingleLineText title={'Top Level Domain: '} text={country.tld} />
+							<SingleLineText title={'Currencies: '} text={currencies} />
+							<SingleLineText
+								title={'Traffic direction: '}
+								text={country.car.side}
+							/>
+							<SingleLineText title={'Timezone: '} text={country.timezones} />
+							<Link url={country.maps.googleMaps} title='View on Google Maps' />
+							
+						</div>
 					</div>
-					<div>
-						<SingleLineText title={'Top Level Domain: '} text={country.tld} />
-						<SingleLineText title={'Currencies: '} text={currencies} />
-            <SingleLineText title={'Traffic direction: '} text={country.car.side} />
-            <SingleLineText title={'Timezone: '} text={country.timezones} />
-            <Link url={country.maps.googleMaps} title='View on Google Maps' />
-            <SingleLineText title={'Languages: '} text={languages.join(', ')} />
-					</div>
+          <SingleLineText
+								title={'Languages: '}
+								text={languages.join(', ')}
+							/>
+          
 				</div>
 			</div>
 		</div>
@@ -70,7 +89,7 @@ function DetailedView() {
 function Link({ url, title }) {
 	if (url) {
 		return (
-			<a href={url} target='_blank' rel='noreferrer'>
+			<a href={url} target='_blank' rel='noreferrer' className='text-sm font-semibold lg:text-base underline underline-offset-2'>
 				{title}
 			</a>
 		);
@@ -81,8 +100,8 @@ function Link({ url, title }) {
 
 function SingleLineText({ text, title }) {
 	return (
-		<p>
-			<span>{title}</span> {text}
+		<p className='text-sm lg:text-base'>
+			<span className="font-semibold">{title}</span> {text}
 		</p>
 	);
 }
