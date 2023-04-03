@@ -8,8 +8,8 @@ function Card({ flagUrl, id, flagAlt, countryName, population, region, capital, 
 	};
 
 	return (
-		<div id={id} onClick={(e) => clickHandler(e)} className='card w-full rounded-lg overflow-hidden drop-shadow-xl cursor-pointer hover:scale-105 transition-transform border border-gray-500'>
-			<img src={flagUrl} alt={flagAlt} className='w-full' />
+		<div id={id} onClick={(e) => clickHandler(e)} className='card w-full rounded-lg overflow-hidden drop-shadow-xl cursor-pointer hover:scale-105 transition-transform border border-gray-500 h-fit'>
+			<img src={flagUrl} alt={flagAlt} className='w-full border-b border-gray-500' />
 			<div className='w-full px-5 py-8'>
 				<h2 className='text-2xl font-bold leading-loose'>{countryName}</h2>
 				<p>
