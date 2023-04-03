@@ -4,7 +4,7 @@ function DetailedView() {
 	const { data, activeCard, setSingleView, countryName, filterOption } =
 		ContextHook();
 	const country = data[activeCard];
-	// console.log(data[activeCard]);
+	console.log(data[activeCard]);
 
 	const HandleBackClick = () => {
 		setSingleView(false);
@@ -38,17 +38,20 @@ function DetailedView() {
 				Back
 			</button>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
-				<div className='border-solid border-1 border-slate-800'>
+				<div className='border-solid '>
 					<img
 						src={country.flags.svg}
 						alt={country.flags.alt}
-						className='w-full'
+						className='w-full border border-gray-500'
 					/>
 				</div>
-				<div className='md:mx-5 lg:mx-12 tracking-wide
+				<div
+					className='md:mx-5 lg:mx-12 tracking-wide
 '>
-					<h1 className='text-xl md:text-2xl lg:text-4xl font-extrabold mb-5'>{country.name.common}</h1>
-					<div className='w-full grid grid-cols-1 mb-2 pb-2 md:grid-cols-2 gap-4 leading-8 border-b border-slate-700'>
+					<h1 className='text-xl md:text-2xl lg:text-4xl font-extrabold mb-5'>
+						{country.name.common}
+					</h1>
+					<div className='w-full grid grid-cols-1 mb-2 pb-2 md:grid-cols-2 gap-2  border-b border-slate-700 '>
 						<div>
 							<SingleLineText title={'Native name: '} text={nativeName} />
 							<Link url={country.coatOfArms.png} title={'Emblem'} />
@@ -72,14 +75,10 @@ function DetailedView() {
 							/>
 							<SingleLineText title={'Timezone: '} text={country.timezones} />
 							<Link url={country.maps.googleMaps} title='View on Google Maps' />
-							
 						</div>
 					</div>
-          <SingleLineText
-								title={'Languages: '}
-								text={languages.join(', ')}
-							/>
-          
+					<SingleLineText title={'Languages: '} text={languages.join(', ')} />
+					<BorderCountries borders={country.borders}/>
 				</div>
 			</div>
 		</div>
@@ -89,7 +88,11 @@ function DetailedView() {
 function Link({ url, title }) {
 	if (url) {
 		return (
-			<a href={url} target='_blank' rel='noreferrer' className='text-sm font-semibold lg:text-base underline underline-offset-2'>
+			<a
+				href={url}
+				target='_blank'
+				rel='noreferrer'
+				className='text-sm font-semibold lg:text-base underline underline-offset-2 '>
 				{title}
 			</a>
 		);
@@ -101,8 +104,33 @@ function Link({ url, title }) {
 function SingleLineText({ text, title }) {
 	return (
 		<p className='text-sm lg:text-base'>
-			<span className="font-semibold">{title}</span> {text}
+			<span className='font-semibold'>{title}</span> {text}
 		</p>
+	);
+}
+
+function BorderCountries({ borders }) {
+	if (typeof(borders) === "undefined" || borders.length === 0) return null;
+	const { data } = ContextHook();
+	console.log(borders.join(','));
+	const borderCountries = []
+	data.forEach ((country) => {
+		if (borders.includes(country.cca3)) {
+			borderCountries.push(country)
+		}
+	}
+	)
+	console.log(borderCountries)
+	return (
+		<div>
+			{borderCountries.map((country) => {
+				return (
+					<button className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
+						{country.name.common}
+					</button>
+				);
+			})}
+		</div>
 	);
 }
 

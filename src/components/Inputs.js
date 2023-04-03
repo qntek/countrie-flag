@@ -4,7 +4,7 @@ import searchIcon from '../svg/search.svg';
 import searchIconLight from '../svg/searchWhite.svg';
 
 function Inputs() {
-	const { isDarkMode, setCountryName, setFilter, countryName } = ContextHook();
+	const { isDarkMode, setCountryName, setFilter } = ContextHook();
 
 	const onSubmit = (e) => {
 		if (e.key === 'Enter') {setCountryName(e.target.value);
@@ -24,6 +24,7 @@ function Inputs() {
 				<input
 					id = 'searchValue'
 					ref={inputRef}
+					autoComplete='off'
 					placeholder='Search for a country...'
 					onKeyDown={(e) => {
 						onSubmit(e);
