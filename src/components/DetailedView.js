@@ -111,22 +111,20 @@ function SingleLineText({ text, title }) {
 
 function BorderCountries({ borders }) {
 	if (typeof(borders) === "undefined" || borders.length === 0) return null;
-	const { data } = ContextHook();
-	console.log(borders.join(','));
+	const { data, setActiveCard } = ContextHook();
 	const borderCountries = []
-	data.forEach ((country) => {
+	data.forEach ((country, index) => {
 		if (borders.includes(country.cca3)) {
-			borderCountries.push(country)
+			borderCountries.push([country, index])
 		}
 	}
 	)
-	console.log(borderCountries)
 	return (
 		<div>
 			{borderCountries.map((country) => {
 				return (
-					<button className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
-						{country.name.common}
+					<button onClick={() => setActiveCard(country[1])} className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
+						{country[0].name.common}
 					</button>
 				);
 			})}
