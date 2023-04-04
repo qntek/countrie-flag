@@ -18,7 +18,7 @@ function App() {
 	}, [isDarkMode, isSingleView]);
 
 	return (
-		<div>
+		<div className='mb-10'>
 			<Header />
 			{isSingleView ? 
 				<DetailedView />

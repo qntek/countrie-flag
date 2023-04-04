@@ -5,16 +5,13 @@ import searchIconLight from '../svg/searchWhite.svg';
 
 function Inputs() {
 	const { isDarkMode, setCountryName, setFilter } = ContextHook();
-
 	const onSubmit = (e) => {
 		if (e.key === 'Enter') {setCountryName(e.target.value);
 		}
 	};
-
 	const onChangeOption = (e) => {
 		setFilter(e.target.value);
 	};
-
 	let icon;
 	isDarkMode ? (icon = searchIconLight) : (icon = searchIcon);
 	const inputRef = useRef();

@@ -1,11 +1,10 @@
 import ContextHook from '../hooks/ContextHook';
+import Button from './Button';
 
 function DetailedView() {
 	const { data, activeCard, setSingleView, countryName, filterOption } =
 		ContextHook();
 	const country = data[activeCard];
-	console.log(data[activeCard]);
-
 	const HandleBackClick = () => {
 		setSingleView(false);
 		setTimeout(() => {
@@ -31,13 +30,9 @@ function DetailedView() {
 		languages.push(country.languages[key]);
 	}
 	return (
-		<div className='xl:container mx-5 xl:mx-auto xl:px-12'>
-			<button
-				onClick={HandleBackClick}
-				className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
-				Back
-			</button>
-			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>
+		<div className='xl:container mx-5 xl:mx-auto xl:px-12 mt-6 md:mt-14'>
+			<Button onClick={HandleBackClick}>Back</Button>
+			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 md:mt-14'>
 				<div className='border-solid '>
 					<img
 						src={country.flags.svg}
@@ -48,11 +43,11 @@ function DetailedView() {
 				<div
 					className='md:mx-5 lg:mx-12 tracking-wide
 '>
-					<h1 className='text-xl md:text-2xl lg:text-4xl font-extrabold mb-5'>
+					<h1 className='text-2xl lg:text-4xl font-extrabold mb-5 text-center md:text-left'>
 						{country.name.common}
 					</h1>
-					<div className='w-full grid grid-cols-1 mb-2 pb-2 md:grid-cols-2 gap-2  border-b border-slate-700 '>
-						<div>
+					<div className='w-full grid grid-cols-1 mb-3 pb-2 md:grid-cols-2 gap-2  border-b border-slate-700 '>
+						<div className='mx-auto lg:m-0 md:w-full w-1/2 text-center md:text-left'>
 							<SingleLineText title={'Native name: '} text={nativeName} />
 							<Link url={country.coatOfArms.png} title={'Emblem'} />
 							<SingleLineText title={'Continent: '} text={country.continents} />
@@ -66,7 +61,7 @@ function DetailedView() {
 								text={country.unMember ? 'Yes' : 'No'}
 							/>
 						</div>
-						<div>
+						<div className='mx-auto lg:m-0 md:w-full w-1/2 text-center  md:text-left mb-2 md:mb-0'>
 							<SingleLineText title={'Top Level Domain: '} text={country.tld} />
 							<SingleLineText title={'Currencies: '} text={currencies} />
 							<SingleLineText
@@ -78,7 +73,7 @@ function DetailedView() {
 						</div>
 					</div>
 					<SingleLineText title={'Languages: '} text={languages.join(', ')} />
-					<BorderCountries borders={country.borders}/>
+					<BorderCountries borders={country.borders} />
 				</div>
 			</div>
 		</div>
@@ -92,7 +87,7 @@ function Link({ url, title }) {
 				href={url}
 				target='_blank'
 				rel='noreferrer'
-				className='text-sm font-semibold lg:text-base underline underline-offset-2 '>
+				className='font-semibold text-base underline underline-offset-2'>
 				{title}
 			</a>
 		);
@@ -102,30 +97,36 @@ function Link({ url, title }) {
 }
 
 function SingleLineText({ text, title }) {
+	if (Array.isArray(text)) {
+		text = text.join(', ');
+	}
 	return (
-		<p className='text-sm lg:text-base'>
+		<p className='text-base '>
 			<span className='font-semibold'>{title}</span> {text}
 		</p>
 	);
 }
 
 function BorderCountries({ borders }) {
-	if (typeof(borders) === "undefined" || borders.length === 0) return null;
+	if (typeof borders === 'undefined' || borders.length === 0) return null;
 	const { data, setActiveCard } = ContextHook();
-	const borderCountries = []
-	data.forEach ((country, index) => {
+	const borderCountries = [];
+	data.forEach((country, index) => {
 		if (borders.includes(country.cca3)) {
-			borderCountries.push([country, index])
+			borderCountries.push([country, index]);
 		}
-	}
-	)
+	});
 	return (
-		<div>
-			{borderCountries.map((country) => {
+		<div className=' mt-2'>
+			<p className='text-base font-semibold mr-3'>Border&nbsp;countries: </p>
+			{borderCountries.map((country, index) => {
 				return (
-					<button onClick={() => setActiveCard(country[1])} className='btn appearance-none px-8 py-1 rounded-sm shadow-md my-6 md:my-14'>
+					<Button
+						key={index}
+						onClick={() => setActiveCard(country[1])}
+						className='mr-2 my-2'>
 						{country[0].name.common}
-					</button>
+					</Button>
 				);
 			})}
 		</div>

@@ -2,14 +2,11 @@ import ContextHook from '../hooks/ContextHook';
 import Card from './Card';
 import { isSimilarString } from '../utility/compareTwoStrings';
 
-
 function AllCards() {
 	const { countryName, filterOption, setSingleView, data } = ContextHook();
-
 	const singleCardClickHandler = () => {
 		setSingleView(true);
 	};
-
 	let response = data;
 	const cards = response.map((country, index) => {
 		if (
