@@ -6,7 +6,8 @@ import searchIconLight from '../svg/searchWhite.svg';
 function Inputs() {
 	const { isDarkMode, setCountryName, setFilter } = ContextHook();
 	const onSubmit = (e) => {
-		if (e.key === 'Enter') {setCountryName(e.target.value);
+		if (e.key === 'Enter') {
+			setCountryName(e.target.value);
 		}
 	};
 	const onChangeOption = (e) => {
@@ -19,7 +20,7 @@ function Inputs() {
 		<div className='xl:container xl:mx-auto mx-5 my-8 md:flex md:justify-between md:align-middle md:px-7 xl:px-12'>
 			<div className='block relative w-full md:w-1/2 xl:w-1/3'>
 				<input
-					id = 'searchValue'
+					id='searchValue'
 					ref={inputRef}
 					autoComplete='off'
 					placeholder='Search for a country...'
@@ -29,7 +30,9 @@ function Inputs() {
 					onChange={(e) => {
 						if (inputRef.current.value === '') setCountryName('');
 					}}
-					onSubmit={() => {setCountryName(inputRef.current.value)}}
+					onSubmit={() => {
+						setCountryName(inputRef.current.value);
+					}}
 					aria-label='Country name'
 					className='filter-options-input h-10 ps-10 py-3 w-full  rounded-md'
 				/>
@@ -41,9 +44,10 @@ function Inputs() {
 				/>
 			</div>
 			<select
-				id = 'filterValue'
+				id='filterValue'
 				className='filter-options-input h-10 mt-8 md:my-0 px-5 rounded-md'
-				onChange={onChangeOption}>
+				onChange={onChangeOption}
+				aria-label='Select continent'>
 				<option default value='all'>
 					Filter by Region
 				</option>

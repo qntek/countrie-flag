@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Inputs from './components/Inputs';
 import AllCards from './components/AllCards';
 import DetailedView from './components/DetailedView';
+import Footer from './components/Footer';
 import './style/index.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 	}, [isDarkMode, isSingleView]);
 
 	return (
-		<div className='mb-10'>
+		<div className='min-h-screen relative'>
 			<Header />
 			{isSingleView ? 
 				<DetailedView />
@@ -28,6 +29,7 @@ function App() {
 					<AllCards />
 				</>
 			)}
+			<Footer />
 		</div>
 	);
 }

@@ -30,7 +30,7 @@ function DetailedView() {
 		languages.push(country.languages[key]);
 	}
 	return (
-		<div className='xl:container mx-5 xl:mx-auto xl:px-12 mt-6 md:mt-14'>
+		<div className='xl:container mx-5 xl:mx-auto xl:px-12 mt-6 md:mt-14 pb-32'>
 			<Button onClick={HandleBackClick}>Back</Button>
 			<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 md:mt-14'>
 				<div className='border-solid '>
@@ -46,7 +46,7 @@ function DetailedView() {
 					<h1 className='text-2xl lg:text-4xl font-extrabold mb-5 text-center md:text-left'>
 						{country.name.common}
 					</h1>
-					<div className='w-full grid grid-cols-1 mb-3 pb-2 md:grid-cols-2 gap-2  border-b border-slate-700 '>
+					<div className='w-full grid grid-cols-1 mb-3 pb-2 md:grid-cols-2 gap-2  border-b'>
 						<div className='mx-auto lg:m-0 md:w-full w-1/2 text-center md:text-left'>
 							<SingleLineText title={'Native name: '} text={nativeName} />
 							<Link url={country.coatOfArms.png} title={'Emblem'} />
@@ -118,7 +118,7 @@ function BorderCountries({ borders }) {
 	});
 	return (
 		<div className=' mt-2'>
-			<p className='text-base font-semibold mr-3'>Border&nbsp;countries: </p>
+			<p className='text-base font-semibold mr-3 mb-3'>Border&nbsp;countries: </p>
 			{borderCountries.map((country, index) => {
 				return (
 					<Button
