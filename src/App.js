@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { FadeLoader } from 'react-spinners'
 import ContextHook from './hooks/ContextHook';
 import Header from './components/Header';
 import Inputs from './components/Inputs';
@@ -21,7 +22,10 @@ function App() {
 	return (
 		<div className='min-h-screen relative'>
 			<Header />
-			{isLoading ? <div>Loading...</div> : null}
+			{isLoading ? <div className='absolute left-1/2 top-1/2 -translate-x-2/4 -translate-y-2/4 text-6xl'> <FadeLoader
+        size={150}
+        aria-label="Loading Spinner"
+      /></div> : null}
 			{isSingleView ? 
 				<DetailedView />
 			 : (

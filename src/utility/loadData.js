@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 async function getData(callback, setIsLoading) {
+  //callback is used to change state of data in Context.js
 	console.log('FETCHING DATA FROM API');
   setIsLoading(true);
 	await axios
@@ -29,6 +30,7 @@ function loadData(callback, setIsLoading) {
 	let cachedData = localStorage.getItem('cachedData');
 
 	if (cachedData) {
+		setIsLoading(true);
 		const parsedData = JSON.parse(cachedData);
 		const lastCachedTime = new Date(parsedData.cachedTime);
 		const currentTime = new Date();
@@ -37,6 +39,7 @@ function loadData(callback, setIsLoading) {
 			// if data younger then one week - load data from LocalStorage
 			const data = parsedData.data;
 			console.log('FETCHING DATA FROM LOCAL STORAGE');
+			setIsLoading(false);
 			callback(data);
 		} else {
 			// if data older than one week - get data from API
