@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import './style/index.css';
 
 function App() {
-	const { isDarkMode, isSingleView } = ContextHook();
+	const { isDarkMode, isSingleView, isLoading } = ContextHook();
 
 	useEffect(() => {
 		const body = document.querySelector('body');
@@ -21,6 +21,7 @@ function App() {
 	return (
 		<div className='min-h-screen relative'>
 			<Header />
+			{isLoading ? <div>Loading...</div> : null}
 			{isSingleView ? 
 				<DetailedView />
 			 : (

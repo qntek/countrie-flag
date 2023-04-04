@@ -8,6 +8,9 @@ function AllCards() {
 		setSingleView(true);
 	};
 	let response = data;
+	if (response === undefined) {
+		response = [];
+	}
 	const cards = response.map((country, index) => {
 		if (
 			filterOption === 'all' ||
