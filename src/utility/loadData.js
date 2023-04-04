@@ -1,4 +1,5 @@
 import axios from 'axios';
+import localData from '../data/data.json';
 
 async function getData(callback, setIsLoading) {
   //callback is used to change state of data in Context.js
@@ -22,6 +23,12 @@ async function getData(callback, setIsLoading) {
 		})
 		.catch((error) => {
 			console.error(error);
+			callback(localData);
+			const cachedData = {
+				data: localData,
+				cachedTime: new Date(),
+			};
+			localStorage.setItem('cachedData', JSON.stringify(cachedData));
       setIsLoading(false);
 		});
 }
