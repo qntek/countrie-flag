@@ -1,5 +1,5 @@
 import axios from 'axios';
-import localData from '../data/data.json';
+import localData from '../data.json';
 
 async function getData(callback, setIsLoading) {
   //callback is used to change state of data in Context.js
