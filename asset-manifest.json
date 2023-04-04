@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/country-flag-api/static/css/main.9e96dbde.css",
-    "main.js": "/country-flag-api/static/js/main.0dce82d9.js",
-    "index.html": "/country-flag-api/index.html",
-    "static/media/search.svg": "/country-flag-api/static/media/search.f9705ffe407455bd10ed6827af98d123.svg",
-    "static/media/searchWhite.svg": "/country-flag-api/static/media/searchWhite.7323df73bb46abf08c4d7bc83ba346f5.svg",
-    "static/media/moon.svg": "/country-flag-api/static/media/moon.a82cae44d086a825a6fa3dfb65dce3ba.svg",
-    "static/media/moonLight.svg": "/country-flag-api/static/media/moonLight.7f5f0c5ef6032b61d24c913493cba07f.svg",
-    "main.9e96dbde.css.map": "/country-flag-api/static/css/main.9e96dbde.css.map",
-    "main.0dce82d9.js.map": "/country-flag-api/static/js/main.0dce82d9.js.map"
+    "main.css": "/country-flag-app/static/css/main.9e96dbde.css",
+    "main.js": "/country-flag-app/static/js/main.1e55ea88.js",
+    "index.html": "/country-flag-app/index.html",
+    "static/media/search.svg": "/country-flag-app/static/media/search.f9705ffe407455bd10ed6827af98d123.svg",
+    "static/media/searchWhite.svg": "/country-flag-app/static/media/searchWhite.7323df73bb46abf08c4d7bc83ba346f5.svg",
+    "static/media/moon.svg": "/country-flag-app/static/media/moon.a82cae44d086a825a6fa3dfb65dce3ba.svg",
+    "static/media/moonLight.svg": "/country-flag-app/static/media/moonLight.7f5f0c5ef6032b61d24c913493cba07f.svg",
+    "main.9e96dbde.css.map": "/country-flag-app/static/css/main.9e96dbde.css.map",
+    "main.1e55ea88.js.map": "/country-flag-app/static/js/main.1e55ea88.js.map"
   },
   "entrypoints": [
     "static/css/main.9e96dbde.css",
-    "static/js/main.0dce82d9.js"
+    "static/js/main.1e55ea88.js"
   ]
 }
