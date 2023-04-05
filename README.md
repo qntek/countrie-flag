@@ -16,10 +16,6 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
-## Introduction
-
-A simple but stylish dictionary web app built with React, Bootstrap and REST API.
-
 ## Screenshots
 
 ![screenshot1](./src/screenshot/1.jpg)
